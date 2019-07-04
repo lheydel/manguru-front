@@ -11,10 +11,10 @@ cache:
     - node_modules
 
 addons:
-  # sonarcloud:
-  #   organization: lheydel-github
-  #   token:
-  #     secure: $SONAR_TOKEN
+  sonarcloud:
+    organization: lheydel-github
+    token:
+      secure: $SONAR_TOKEN
 
 script:
   # Build app
@@ -24,7 +24,7 @@ script:
   - npm run test
 
   # Code analysis (Sonarqube)
-  # - sonar-scanner
+  - sonar-scanner
 
 git:
   depth: false
