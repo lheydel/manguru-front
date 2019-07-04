@@ -25,10 +25,10 @@ script:
 
 deploy:
   # Do not cleanup before deploy
-  skip_cleanup: true 
   # Prod
   - provider: script
     script: bash deploy prod
+    skip_cleanup: true 
     on:
       branch: master
 
