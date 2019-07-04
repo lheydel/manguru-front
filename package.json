@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run tslint && react-scripts start",
     "build": "npm run tslint && react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
@@ -44,9 +44,15 @@
     "@types/react-router-dom": "^4.3.4",
     "@types/redux-logger": "^3.0.7",
     "@types/redux-thunk": "^2.1.0",
+    "jest-sonar-reporter": "^2.0.0",
     "redux-devtools": "^3.5.0",
     "tslint": "^5.18.0",
     "typescript": "^3.4.3",
     "utility-types": "^3.7.0"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "sonar-report.xml",
+    "indent": 4
   }
 }
