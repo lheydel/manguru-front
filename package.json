@@ -1,0 +1,52 @@
+{
+  "name": "manguru-front",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm run tslint && react-scripts start",
+    "build": "npm run tslint && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "connected-react-router": "^6.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.15",
+    "@types/node": "12.0.10",
+    "@types/react": "16.8.22",
+    "@types/react-dom": "16.8.4",
+    "@types/react-redux": "^7.1.0",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/redux-logger": "^3.0.7",
+    "@types/redux-thunk": "^2.1.0",
+    "redux-devtools": "^3.5.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.4.3",
+    "utility-types": "^3.7.0"
+  }
+}
