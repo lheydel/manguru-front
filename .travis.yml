@@ -1,0 +1,44 @@
+dist: trusty
+language: node_js
+node_js:
+  - 12
+
+services:
+  # - docker
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  # sonarcloud:
+  #   organization: lheydel-github
+  #   token:
+  #     secure: $SONAR_TOKEN
+
+script:
+  # Build app
+  - npm run build
+  
+  # Run tests
+  - npm run test
+
+  # Code analysis (Sonarqube)
+  # - sonar-scanner
+
+git:
+  depth: false
+  
+notifications:
+  email: false
+
+# Discord Webhook
+after_success:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+  
+after_failure:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
