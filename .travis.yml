@@ -25,7 +25,7 @@ script:
 
 deploy:
   # Do not cleanup before deploy
-  skip-cleanup: true 
+  # skip-cleanup: true 
   # Prod
   - provider: script
     script: bash deploy prod
