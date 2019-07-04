@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { ApplicationState } from '../../services/common/app.state';
 import userActions from '../../services/user/actions/user.actions';
 import { UserLoginState } from '../../services/user/reducers/user.states';
-import { RouteComponentProps } from 'react-router';
 
 const mapStateToProps = (state: ApplicationState) => {
   return {
