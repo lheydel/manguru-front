@@ -18,12 +18,12 @@ const mapDispatchToProps = (dispatch: Function) => {
   };
 };
 
-interface Props {
+export interface AppProps {
   loginState: UserLoginState;
   login: Function;
 }
 
-class RawApp extends React.Component<Props & RouteComponentProps> {
+export class RawApp extends React.Component<AppProps> {
   private login() {
     const { loginState } = this.props;
     if (!loginState.loading && !loginState.logged) {
