@@ -24,10 +24,9 @@ script:
   - sonar-scanner
 
 deploy:
-  # Do not cleanup before deploy
   # Prod
   - provider: script
-    script: bash deploy prod
+    script: bash ./deploy.sh prod
     skip_cleanup: true 
     on:
       branch: master
