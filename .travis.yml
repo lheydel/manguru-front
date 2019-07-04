@@ -24,6 +24,7 @@ script:
   - sonar-scanner
 
 deploy:
+  # Do not cleanup before deploy
   skip-cleanup: true 
   # Prod
   - provider: script
