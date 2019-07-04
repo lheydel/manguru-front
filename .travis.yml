@@ -26,11 +26,7 @@ script:
 deploy:
   # Prod
   - provider: script
-    script: 
-      - docker login -u $DOCKER_LOGIN $DOCKER_PASSWORD
-      - docker build . --tag=manguru-front
-      - docker tag manguru-front louec/manguru:front
-      - docker push louec/manguru:front
+    script: bash deploy $DOCKER_LOGIN $DOCKER_PASSWORD prod
     on:
       branch: master
 
