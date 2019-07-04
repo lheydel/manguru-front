@@ -4,7 +4,7 @@ node_js:
   - 12
 
 services:
-  # - docker
+  - docker
 
 cache:
   directories:
@@ -17,14 +17,22 @@ addons:
       secure: $SONAR_TOKEN
 
 script:
-  # Build app
-  - npm run build
-  
   # Run tests
   - npm run test
 
   # Code analysis (Sonarqube)
   - sonar-scanner
+
+deploy:
+  # Prod
+  - provider: script
+    script: 
+      - docker login -u $DOCKER_LOGIN $DOCKER_PASSWORD
+      - docker build . --tag=manguru-front
+      - docker tag manguru-front louec/manguru:front
+      - docker push louec/manguru:front
+    on:
+      branch: master
 
 git:
   depth: false

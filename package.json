@@ -7,7 +7,6 @@
     "build": "npm run tslint && react-scripts build",
     "test": "react-scripts test --coverage a",
     "eject": "react-scripts eject",
-    "jest": "jest --forceExit --detectOpenHandles --coverage --verbose",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "eslintConfig": {
@@ -47,7 +46,6 @@
     "@types/react-router-dom": "^4.3.4",
     "@types/react-test-renderer": "^16.8.2",
     "@types/redux-logger": "^3.0.7",
-    "@types/redux-thunk": "^2.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest-sonar-reporter": "^2.0.0",
