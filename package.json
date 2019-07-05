@@ -1,6 +1,12 @@
 {
   "name": "manguru-front",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lheydel/manguru-back.git"
+  },
+  "author": "Luc Heydel",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "start": "npm run tslint && react-scripts start",
