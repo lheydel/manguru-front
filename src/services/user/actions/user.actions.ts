@@ -3,7 +3,7 @@ import { User } from '../../../models/user.model';
 
 /**
  * Define actions on users
- * Possible actions :
+ * Possible actions:
  *  - login
  *  - logout
  *  - register

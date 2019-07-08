@@ -7,6 +7,7 @@ import { fork, all } from 'redux-saga/effects';
 import userSaga from './services/user/saga/user.saga';
 import { BaseSaga } from './services/common/base.saga';
 import userReducer from './services/user/reducers/user.reducers';
+import i18nReducer from './services/i18n/reducers/i18n.reducers';
 
 class StoreConfig {
 
@@ -15,6 +16,7 @@ class StoreConfig {
      */
     private reducers: any = {
         router: null, // setup in this.configureStore
+        i18n: i18nReducer,
         user: userReducer
     };
 

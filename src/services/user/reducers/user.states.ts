@@ -8,13 +8,6 @@ export type UserLoginState = DeepReadonly<{
     error?: string;
 }>;
 
-// export interface UserLoginState {
-//     readonly loading: boolean;
-//     readonly logged: boolean;
-//     readonly user?: User;
-//     readonly error?: string;
-// }
-
 export const initialUserLoginState: UserLoginState = {loading: false, logged: false};
 
 export type UserState = DeepReadonly<{

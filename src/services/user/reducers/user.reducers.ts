@@ -6,7 +6,7 @@ class UserReducer {
 
     public static makeReducer() {
         return combineReducers({
-            login: this.login
+            login: UserReducer.login
         });
     }
 

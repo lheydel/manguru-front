@@ -4,6 +4,7 @@ import { Store } from 'redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { History } from 'history';
 import { Routes } from '../../routes';
+import { I18nConnected } from './I18nConnected';
 
 interface RootProps {
   store: Store;
@@ -11,9 +12,11 @@ interface RootProps {
 }
 
 export const Root: React.FC<RootProps> = ({store, history}: RootProps) => (
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Routes />
-    </ConnectedRouter>
-  </Provider>
+    <Provider store={store}>
+      <I18nConnected>
+        <ConnectedRouter history={history}>
+          <Routes />
+        </ConnectedRouter>
+      </I18nConnected>
+    </Provider>
 );
