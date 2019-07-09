@@ -1,27 +1,22 @@
 import React, { ReactNode } from 'react';
 import { I18nProvider } from '@lingui/react';
 import { Language } from '../../../utils/properties';
-import { setupI18n } from '@lingui/core';
-import catalogs from '../../../services/i18n/locales';
 import { ApplicationState } from '../../../services/common/app.state';
 import { connect } from 'react-redux';
-import { I18nState } from '../../../services/i18n/reducers/i18n.states';
+import i18nService from '../../../services/i18n/i18n.service';
 
 export interface I18nConnectedProps {
-    children: ReactNode;
-    language: Language;
-    // i18nState: I18nState;
+  children: ReactNode;
+  language: Language;
 }
-
-export const i18n = setupI18n({
-  language: Language.EN,
-  catalogs: catalogs
-});
 
 export class RawI18nConnected extends React.Component<I18nConnectedProps> {
   public render() {
+    const { i18n } = i18nService;
+    const { language } = this.props;
+    i18n.activate(language);
     return (
-      <I18nProvider language={this.props.language} i18n={i18n}>
+      <I18nProvider language={language} i18n={i18n}>
         {this.props.children}
       </I18nProvider>
     );
@@ -31,7 +26,6 @@ export class RawI18nConnected extends React.Component<I18nConnectedProps> {
 const mapStateToProps = (state: ApplicationState) => {
   return {
     language: state.i18n.language
-    // i18nState: state.i18n
   };
 };
 
