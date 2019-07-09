@@ -15,16 +15,15 @@ class UserSaga implements BaseSaga {
     }
 
     public * handleLogin(action: UserLoginActionRequest) {
-        const result = yield call(userService.login, action.email, action.password);
-
         try {
+            const result = yield call(userService.login, action.email, action.password);
             if (result.error) {
                 yield put(userActions.loginError(result.error));
             } else {
                 yield put(userActions.loginSuccess(result));
             }
         } catch (err) {
-            put(userActions.loginError(err.stack || 'An unknown error has occured'));
+            yield put(userActions.loginError(err.stack || 'An unknown error has occured'));
         }
     }
 }

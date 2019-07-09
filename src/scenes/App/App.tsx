@@ -16,6 +16,11 @@ export interface AppProps {
 }
 
 export class RawApp extends React.Component<AppProps> {
+  constructor(props: AppProps) {
+    super(props);
+    this.login = this.login.bind(this);
+  }
+
   private login() {
     const { loginState } = this.props;
     if (!loginState.loading && !loginState.logged) {
@@ -26,13 +31,13 @@ export class RawApp extends React.Component<AppProps> {
 
   public render() {
     // this.login();
-    const name = this.props.loginState.logged ? 'blblbl' : 'unknown person';
+    const name = this.props.loginState.user ? this.props.loginState.user.email : 'unknown person';
     return (<div className='App'>
       <header className='App-header'>
         <h1 style={{color: 'red', fontSize: 150, marginTop: '50px'}}>
           <Trans>Hello <small>{name}</small>! How are <i>you</i>?</Trans>
         </h1>
-        <button onClick={this.login.bind(this)}>Login</button>
+        <button onClick={this.login}>Login</button>
         <button onClick={() => this.props.changeLanguage(Language.FR)}>FR</button>
         <button onClick={() => this.props.changeLanguage(Language.EN)}>EN</button>
         <Plural

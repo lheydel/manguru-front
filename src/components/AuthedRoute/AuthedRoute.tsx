@@ -1,14 +1,25 @@
 import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
+import { ApplicationState } from '../../services/common/app.state';
+import { connect } from 'react-redux';
 
 interface AuthedRouteProps extends RouteProps {
-    component: any;
+  component: any;
+  logged: boolean;
 }
 
-export const AuthedRoute: React.FC<AuthedRouteProps> = ({component: Child, ...rest }) => (
-    <Route {...rest} render={props => (
-        localStorage.getItem('user')
-            ? <Child {...props} />
-            : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-    )} />
+const RawAuthedRoute: React.FC<AuthedRouteProps> = ({component: Child, logged, ...rest }) => (
+  <Route {...rest} render={props => (
+    logged
+      ? <Child {...props} />
+      : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+  )} />
 );
+
+const mapStateToProps = (state: ApplicationState) => {
+  return {
+    logged: state.user.login.logged
+  };
+};
+
+export const AuthedRoute = connect(mapStateToProps)(RawAuthedRoute);

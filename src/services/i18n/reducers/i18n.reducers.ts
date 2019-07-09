@@ -1,7 +1,5 @@
-import { combineReducers } from 'redux';
 import { I18nState, initialI18nState } from './i18n.states';
 import { I18nAction, I18nActionType } from '../actions/i18n.types';
-import { Language } from '../../../utils/properties';
 
 class I18nReducer {
 

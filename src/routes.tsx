@@ -4,8 +4,8 @@ import { AuthedRoute } from './components/AuthedRoute';
 import { App } from './scenes/App/App';
 
 export const Routes: React.SFC = () => (
-    <Switch>
-        <Route exact path='/' component={App} />
-        <AuthedRoute path='/home' component={App} />
-    </Switch>
+  <Switch>
+    <Route exact path='/' component={App} />
+    <AuthedRoute path='/home' component={App} />
+  </Switch>
 );

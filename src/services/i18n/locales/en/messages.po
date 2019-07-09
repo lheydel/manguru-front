@@ -13,15 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/scenes/App/App.tsx:23
+#: src/scenes/App/App.tsx:27
 msgid "Hello <0>{name}</0>! How are <1>you</1>?"
 msgstr "Hello <0>{name}</0>! How are <1>you</1>?"
 
-#: src/scenes/App/App.tsx:32
+#: src/scenes/App/App.tsx:36
 msgid "This is a test"
 msgstr "This is a test"
 
-#: src/scenes/App/App.tsx:30
+#: src/scenes/App/App.tsx:34
 msgid "Today: {0,date}"
 msgstr "Today: {0,date}"
 
@@ -29,6 +29,6 @@ msgstr "Today: {0,date}"
 #~ msgid "this is a test"
 #~ msgstr "this is a test"
 
-#: src/scenes/App/App.tsx:28
+#: src/scenes/App/App.tsx:32
 msgid "{0, plural, =0 {There is no banana :(} =666 {MOUHAHAHAHA I got my # bananas!!} one {Well, at leat we have one banana...} other {Look at all those bananas! We have at least # of them!!!!}}"
 msgstr "{0, plural, =0 {There is no banana :(} =666 {MOUHAHAHAHA I got my # bananas!!} one {Well, at leat we have one banana...} other {Look at all those bananas! We have at least # of them!!!!}}"
