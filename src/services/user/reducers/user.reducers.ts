@@ -16,7 +16,7 @@ class UserReducer {
                 return { ...state, loading: true };
 
             case UserActionType.LOGIN_SUCCESS:
-                return { ...state, loading: false, logged: true, user: action.user };
+                return { ...state, loading: false, logged: true, user: action.user, error: undefined };
 
             case UserActionType.LOGIN_ERROR:
                 return { ...state, loading: false, logged: false, error: action.error };
