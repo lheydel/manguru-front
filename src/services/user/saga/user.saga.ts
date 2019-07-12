@@ -30,7 +30,7 @@ class UserSaga implements BaseSaga {
             const result: User = yield call(userService.login, dto);
             yield put(userActions.loginSuccess(result));
         } catch (err) {
-            yield put(userActions.loginFailure(err.message));
+            yield put(userActions.loginFailure(err));
         }
     }
 }
