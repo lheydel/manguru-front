@@ -17,6 +17,9 @@ addons:
       secure: $SONAR_TOKEN
 
 script:
+  # run pre-build checks
+  - npm run pre-build
+
   # Run tests
   - npm run test
 
