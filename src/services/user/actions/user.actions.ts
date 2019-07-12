@@ -1,39 +1,26 @@
-import { UserActionType, UserLoginActionRequest, UserLoginActionSuccess, UserLoginActionError } from './user.types';
 import { User } from '../../../models/user.model';
 
-/**
- * Define actions on users
- * Possible actions:
- *  - login
- *  - logout
- *  - register
- *  - remove
- */
-class UserActions {
-
-    public loginRequest(email: string, password: string): UserLoginActionRequest {
-        return {
-            type: UserActionType.LOGIN_REQUEST,
-            email: email,
-            password: password
-        };
-    }
-
-    public loginSuccess(users: User): UserLoginActionSuccess {
-        return {
-            type: UserActionType.LOGIN_SUCCESS,
-            user: users
-        };
-    }
-
-    public loginError(error: string): UserLoginActionError {
-        return {
-            type: UserActionType.LOGIN_ERROR,
-            error: error
-        };
-    }
-
-    // TODO others
+export enum UserActionType {
+  LOGIN_REQUEST = '@@user/LOGIN_REQUEST',
+  LOGIN_SUCCESS = '@@user/LOGIN_SUCCESS',
+  LOGIN_FAILURE = '@@user/LOGIN_ERROR'
 }
 
-export default new UserActions();
+export interface UserLoginActionRequest {
+  type: UserActionType.LOGIN_REQUEST;
+  email: string;
+  password: string;
+}
+
+export interface UserLoginActionSuccess {
+  type: UserActionType.LOGIN_SUCCESS;
+  user: User;
+}
+
+export interface UserLoginActionFailure {
+  type: UserActionType.LOGIN_FAILURE;
+  error: string;
+}
+
+export type UserLoginAction = UserLoginActionRequest | UserLoginActionSuccess | UserLoginActionFailure;
+

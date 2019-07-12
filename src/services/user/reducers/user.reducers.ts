@@ -1,8 +1,8 @@
 import { initialUserLoginState, UserLoginState } from './user.states';
-import { UserLoginAction, UserActionType } from '../actions/user.types';
+import { UserLoginAction, UserActionType } from '../actions/user.actions';
 import { combineReducers } from 'redux';
 
-class UserReducer {
+export class UserReducer {
 
     public static makeReducer() {
         return combineReducers({
@@ -13,20 +13,20 @@ class UserReducer {
     public static login(state: UserLoginState = initialUserLoginState, action: UserLoginAction): UserLoginState {
         switch (action.type) {
             case UserActionType.LOGIN_REQUEST:
-                return { ...state, loading: true };
+                return { loading: true, logged: false };
 
             case UserActionType.LOGIN_SUCCESS:
-                return { ...state, loading: false, logged: true, user: action.user, error: undefined };
+                return { loading: false, logged: true, user: action.user };
 
-            case UserActionType.LOGIN_ERROR:
-                return { ...state, loading: false, logged: false, error: action.error };
+            case UserActionType.LOGIN_FAILURE:
+                return { loading: false, logged: false, error: action.error };
 
             default:
                 return state;
         }
     }
 
-    // public static logout(state: UserState, action: LogoutAction) {
+    // public static logout(state: UserLoginState, action: LogoutAction) {
 
     // }
 }

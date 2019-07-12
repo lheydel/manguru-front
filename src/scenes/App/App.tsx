@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { ApplicationState } from '../../services/common/app.state';
-import userActions from '../../services/user/actions/user.actions';
+import userActions from '../../services/user/actions/user.actionners';
 import { UserLoginState } from '../../services/user/reducers/user.states';
 import { Language } from '../../utils/properties';
 import { Trans, Plural, DateFormat, t } from '@lingui/macro';
 import { I18n } from '@lingui/react';
-import i18nActions from '../../services/i18n/actions/i18n.actions';
+import i18nActions from '../../services/i18n/actions/i18n.actionners';
 
 export interface AppProps {
   loginState: UserLoginState;
@@ -31,7 +31,7 @@ export class RawApp extends React.Component<AppProps> {
 
   public render() {
     // this.login();
-    const name = this.props.loginState.user ? this.props.loginState.user.email : 'unknown person';
+    const name = this.props.loginState.logged ? this.props.loginState.user.email : 'unknown person';
     return (<div className='App'>
       <header className='App-header'>
         <h1 style={{color: 'red', fontSize: 150, marginTop: '50px'}}>

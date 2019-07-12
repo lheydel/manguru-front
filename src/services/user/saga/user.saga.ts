@@ -1,15 +1,21 @@
 import { fork, all, takeLeading, call, put } from 'redux-saga/effects';
-import { UserActionType, UserLoginActionRequest } from '../actions/user.types';
-import userService from '../user.service';
-import userActions from '../actions/user.actions';
+import { UserActionType, UserLoginActionRequest } from '../actions/user.actions';
+import userService from '../service/user.service';
+import userActions from '../actions/user.actionners';
 import { BaseSaga } from '../../common/base.saga';
-import { UserCreateReqDTO } from '../dto/user.create.req.dto';
+import { UserCreateReqDTO } from '../dto/user.create.req';
 import { User } from '../../../models/user.model';
 
 class UserSaga implements BaseSaga {
 
+    constructor() {
+        this.makeSaga = this.makeSaga.bind(this);
+        this.watchLoginRequest = this.watchLoginRequest.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+    }
+
     public * makeSaga() {
-        yield all([fork([this, this.watchLoginRequest])]);
+        yield all([fork(this.watchLoginRequest)]);
     }
 
     public * watchLoginRequest() {
@@ -19,10 +25,12 @@ class UserSaga implements BaseSaga {
     public * handleLogin(action: UserLoginActionRequest) {
         try {
             const dto = new UserCreateReqDTO(action.email, 'username', action.password);
+            dto.validateMe();
+
             const result: User = yield call(userService.login, dto);
             yield put(userActions.loginSuccess(result));
         } catch (err) {
-            yield put(userActions.loginError(err.stack || 'An unknown error has occured'));
+            yield put(userActions.loginFailure(err));
         }
     }
 }

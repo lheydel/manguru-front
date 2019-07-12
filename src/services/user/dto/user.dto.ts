@@ -9,9 +9,9 @@ export class UserDTO extends BaseDTO {
 
     constructor(data: any) {
         super();
-        this.id = data.id;
-        this.email = data.email;
-        this.username = data.username;
+        this.id = data ? data.id : '';
+        this.email = data ? data.email : '';
+        this.username = data ? data.username : '';
     }
 
     /**
@@ -26,7 +26,7 @@ export class UserDTO extends BaseDTO {
         };
     }
 
-    public checkFields() {
+    protected checkFields() {
         // check email
         if (!this.isValidString(this.email)) {
             this.addEmptyFieldError('email');

@@ -6,5 +6,5 @@ module.exports = {
         "^.+\\.spec.ts?$": "ts-jest",
         "^.+\\.spec.tsx?$": "ts-jest"
     },
-    "testResultsProcessor": "jest-sonar-reporter"
+    "testResultsProcessor": "jest-sonar-reporter",
 }

@@ -3,7 +3,7 @@ import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { ApplicationState } from '../../services/common/app.state';
 import { connect } from 'react-redux';
 
-interface AuthedRouteProps extends RouteProps {
+export interface AuthedRouteProps extends RouteProps {
   component: any;
   logged: boolean;
 }

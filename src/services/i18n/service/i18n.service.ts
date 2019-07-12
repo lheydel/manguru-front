@@ -1,5 +1,5 @@
-import { Language } from '../../utils/properties';
-import catalogs from './locales';
+import { Language } from '../../../utils/properties';
+import catalogs from '../locales';
 import { setupI18n, I18n } from '@lingui/core';
 
 class I18nService {

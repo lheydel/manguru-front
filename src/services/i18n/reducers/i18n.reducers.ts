@@ -1,7 +1,7 @@
 import { I18nState, initialI18nState } from './i18n.states';
-import { I18nAction, I18nActionType } from '../actions/i18n.types';
+import { I18nAction, I18nActionType } from '../actions/i18n.actions';
 
-class I18nReducer {
+export class I18nReducer {
 
     // public static makeReducer() {
     //     return combineReducers({

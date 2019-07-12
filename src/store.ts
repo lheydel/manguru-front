@@ -38,7 +38,7 @@ class StoreConfig {
      * Manage all saga reducers
      */
     private * _rootSaga(sagaTriggers: BaseSaga[]) {
-        const reducers = sagaTriggers.map(r => fork([r, r.makeSaga]));
+        const reducers = sagaTriggers.map(r => fork(r.makeSaga));
         yield all(reducers);
     }
 

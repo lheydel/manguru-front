@@ -9,17 +9,17 @@ export class UserCreateReqDTO extends UserDTO {
         this.password = password;
     }
 
-    public checkFields() {
+    public validateMe() {
+        this.checkFields();
+        this.throwIfError();
+    }
+
+    protected checkFields() {
         super.checkFields();
 
         // check password
         if (!this.isValidString(this.password)) {
             this.addEmptyFieldError('password');
         }
-    }
-
-    public validateMe() {
-        this.checkFields();
-        this.throwIfError();
     }
 }

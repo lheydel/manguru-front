@@ -3,14 +3,14 @@ import { I18nProvider } from '@lingui/react';
 import { Language } from '../../../utils/properties';
 import { ApplicationState } from '../../../services/common/app.state';
 import { connect } from 'react-redux';
-import i18nService from '../../../services/i18n/i18n.service';
+import i18nService from '../../../services/i18n/service/i18n.service';
 
 export interface I18nConnectedProps {
   children: ReactNode;
   language: Language;
 }
 
-export class RawI18nConnected extends React.Component<I18nConnectedProps> {
+class RawI18nConnected extends React.Component<I18nConnectedProps> {
   public render() {
     const { i18n } = i18nService;
     const { language } = this.props;

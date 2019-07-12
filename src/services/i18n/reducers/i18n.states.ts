@@ -1,6 +1,6 @@
 import { DeepReadonly } from 'utility-types';
 import { Language } from '../../../utils/properties';
-import i18nService from '../i18n.service';
+import i18nService from '../service/i18n.service';
 
 export type I18nState = DeepReadonly<{
     language: Language
