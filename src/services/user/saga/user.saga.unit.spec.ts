@@ -42,7 +42,7 @@ describe('login', () => {
                 .run();
     });
 
-    it('should call loginSuccess', () => {
+    it('should call loginSuccess when service returns user', () => {
         UserCreateReqDTO.prototype.validateMe = mockDto;
         userService.login = jest.fn().mockResolvedValue(user);
 
@@ -51,7 +51,7 @@ describe('login', () => {
                 .run();
     });
 
-    it('should call loginFailure', () => {
+    it('should call loginFailure when service throws', () => {
         UserCreateReqDTO.prototype.validateMe = mockDto;
         userService.login = jest.fn().mockRejectedValue('');
 
