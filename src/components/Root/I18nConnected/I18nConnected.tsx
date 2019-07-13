@@ -10,7 +10,7 @@ export interface I18nConnectedProps {
   language: Language;
 }
 
-class RawI18nConnected extends React.Component<I18nConnectedProps> {
+export class RawI18nConnected extends React.Component<I18nConnectedProps> {
   public render() {
     const { i18n } = i18nService;
     const { language } = this.props;

@@ -6,7 +6,7 @@ import { History } from 'history';
 import { Routes } from '../../routes';
 import { I18nConnected } from './I18nConnected';
 
-interface RootProps {
+export interface RootProps {
   store: Store;
   history: History;
 }

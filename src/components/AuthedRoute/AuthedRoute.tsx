@@ -8,7 +8,7 @@ export interface AuthedRouteProps extends RouteProps {
   logged: boolean;
 }
 
-const RawAuthedRoute: React.FC<AuthedRouteProps> = ({component: Child, logged, ...rest }) => (
+export const RawAuthedRoute: React.FC<AuthedRouteProps> = ({component: Child, logged, ...rest }) => (
   <Route {...rest} render={props => (
     logged
       ? <Child {...props} />

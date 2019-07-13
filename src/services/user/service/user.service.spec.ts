@@ -13,7 +13,7 @@ afterEach(() => {
 });
 
 describe('login', () => {
-    // TODO adapt tests when actual login will be developped
+    // TODO adapt tests when actual login is developped
     const user: User = {
         id: expect.anything(),
         email: 'sandra@geffroi.com',
