@@ -1,0 +1,6 @@
+{
+    "localeDir": "src/services/i18n/locales",
+    "srcPathDirs": ["src/"],
+    "format": "po",
+    "sourceLocale": "en"
+}

@@ -1,3 +1,6 @@
 node_modules
 coverage
 .vscode
+src/services/i18n/locales/_build
+src/services/i18n/locales/*/*.js
+.env*.local
