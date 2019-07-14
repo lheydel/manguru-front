@@ -7,17 +7,14 @@ It provides a user interface with ReactJS and Redux.
 # Table of contents
  - [Pre-reqs](#pre-reqs)
  - [Getting started](#getting-started)
-    - [Running in near prod environment](##running-in-near-prod-environment)
     - [Running in dev mode](##running-in-dev-mode)
 - [Tools](#tools)
     - [Language and framework](##language-and-framework)
-    - [Database management](##database-management)
     - [Tests](##tests)
     - [Continuous integration](##continuous-integration)
     - [Code analysis](##code-analysis)
  - [Development rules](#development-rules)
     - [Basic rules](##basic-rules)
-    - [Database migrations](##database-migrations)
 
 # Pre-reqs
 To build and run this app locally, you will to install [Node.js](https://nodejs.org/en/)
