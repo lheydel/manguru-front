@@ -1,13 +1,24 @@
 {
   "name": "manguru-front",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lheydel/manguru-back.git"
+  },
+  "author": "Luc Heydel",
+  "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "npm run tslint && react-scripts start",
-    "build": "npm run tslint && react-scripts build",
-    "test": "react-scripts test --coverage a",
+    "start": "npm run pre-build && react-scripts start",
+    "build": "npm run pre-build && react-scripts build",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "tslint": "tslint -c tslint.json -p tsconfig.json"
+    "pre-build": "npm run tslint && npm run lang-extract && npm run lang-compile",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "add-locale": "lingui add-locale",
+    "lang-extract": "lingui extract",
+    "lang-clean": "lingui extract --clean",
+    "lang-compile": "lingui compile --strict"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -25,7 +36,10 @@
     ]
   },
   "dependencies": {
+    "@lingui/react": "^2.8.3",
+    "axios": "^0.19.0",
     "connected-react-router": "^6.4.0",
+    "detect-browser-language": "0.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -36,9 +50,17 @@
     "redux-saga": "^1.0.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@lingui/cli": "^2.8.3",
+    "@lingui/macro": "^2.8.3",
     "@types/enzyme": "^3.10.1",
     "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/enzyme-to-json": "^1.5.3",
     "@types/jest": "24.0.15",
+    "@types/lingui__core": "^2.7.0",
+    "@types/lingui__macro": "^2.7.3",
+    "@types/lingui__react": "^2.8.0",
+    "@types/moxios": "^0.4.8",
     "@types/node": "12.0.10",
     "@types/react": "16.8.22",
     "@types/react-dom": "16.8.4",
@@ -46,11 +68,17 @@
     "@types/react-router-dom": "^4.3.4",
     "@types/react-test-renderer": "^16.8.2",
     "@types/redux-logger": "^3.0.7",
+    "@types/redux-mock-store": "^1.0.1",
+    "babel-core": "^7.0.0-bridge.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "jest-sonar-reporter": "^2.0.0",
+    "moxios": "^0.4.0",
     "react-test-renderer": "^16.8.6",
     "redux-devtools": "^3.5.0",
+    "redux-mock-store": "^1.5.3",
+    "redux-saga-test-plan": "^4.0.0-beta.3",
     "tslint": "^5.18.0",
     "typescript": "^3.4.3",
     "utility-types": "^3.7.0"
