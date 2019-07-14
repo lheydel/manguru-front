@@ -8,7 +8,8 @@ let props: AppProps;
 beforeEach(() => {
   props = {
     login: jest.fn(),
-    loginState: initialUserLoginState
+    loginState: initialUserLoginState,
+    changeLanguage: jest.fn()
   };
 });
 
