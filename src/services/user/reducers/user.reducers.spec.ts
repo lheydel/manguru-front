@@ -21,6 +21,11 @@ describe('login', () => {
     };
     const states = [undefined, initialUserLoginState, requestState, successState, failureState];
 
+    /**
+     * Test the effects of an action on all possible states
+     * @param action the action to test
+     * @param expectedState the expected resulting state
+     */
     const withAllStates = (action: UserLoginAction, expectedState: UserLoginState) => {
         states.forEach(state => {
             expect(UserReducer.login(state, action)).toEqual(expectedState);
@@ -33,11 +38,19 @@ describe('login', () => {
         user.username = 'Tim Yfeppeur';
     });
 
-    test('request for the first time', () => {
+    test('request', () => {
         const action: UserLoginAction = {
             type: UserActionType.LOGIN_REQUEST,
             email: user.email,
-            password: 'blblbl'
+            password: 'blblbl',
+            rememberMe: true,
+        };
+        withAllStates(action, requestState);
+    });
+
+    test('jwt request', () => {
+        const action: UserLoginAction = {
+            type: UserActionType.LOGIN_JWT_REQUEST
         };
         withAllStates(action, requestState);
     });

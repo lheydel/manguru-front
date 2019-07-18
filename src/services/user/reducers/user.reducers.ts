@@ -13,6 +13,7 @@ export class UserReducer {
     public static login(state: UserLoginState = initialUserLoginState, action: UserLoginAction): UserLoginState {
         switch (action.type) {
             case UserActionType.LOGIN_REQUEST:
+            case UserActionType.LOGIN_JWT_REQUEST:
                 return { loading: true, logged: false };
 
             case UserActionType.LOGIN_SUCCESS:

@@ -9,6 +9,8 @@ exports[`I18nConnected component should render itself and children 1`] = `
         "plurals": [Function],
       },
       "_activeMessages": Object {
+        "An error occured. Please try again later": "An error occured. Please try again later",
+        "Email or password incorrect": "Email or password incorrect",
         "Hello <0>{name}</0>! How are <1>you</1>?": [Function],
         "This is a test": "This is a test",
         "Today: {0,date}": [Function],
@@ -21,6 +23,8 @@ exports[`I18nConnected component should render itself and children 1`] = `
             "plurals": [Function],
           },
           "messages": Object {
+            "An error occured. Please try again later": "An error occured. Please try again later",
+            "Email or password incorrect": "Email or password incorrect",
             "Hello <0>{name}</0>! How are <1>you</1>?": [Function],
             "This is a test": "This is a test",
             "Today: {0,date}": [Function],
@@ -33,6 +37,8 @@ exports[`I18nConnected component should render itself and children 1`] = `
             "plurals": [Function],
           },
           "messages": Object {
+            "An error occured. Please try again later": "Une erreur s'est produite. Veuillez réessayer plus tard",
+            "Email or password incorrect": "Email ou mot de passe incorrect",
             "Hello <0>{name}</0>! How are <1>you</1>?": [Function],
             "This is a test": "Ziz iz eu teste",
             "Today: {0,date}": [Function],

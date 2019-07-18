@@ -41,13 +41,15 @@
     "connected-react-router": "^6.4.0",
     "detect-browser-language": "0.0.2",
     "react": "^16.8.6",
+    "react-cookie": "^4.0.1",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.0.4"
+    "redux-saga": "^1.0.4",
+    "universal-cookie": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",
@@ -69,6 +71,7 @@
     "@types/react-test-renderer": "^16.8.2",
     "@types/redux-logger": "^3.0.7",
     "@types/redux-mock-store": "^1.0.1",
+    "@types/universal-cookie": "^2.2.0",
     "babel-core": "^7.0.0-bridge.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
