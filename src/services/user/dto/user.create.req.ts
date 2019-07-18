@@ -1,6 +1,6 @@
 import { UserDTO } from './user.dto';
 
-export class UserCreateReqDTO extends UserDTO {
+export class UserCreateRequest extends UserDTO {
 
     password: string;
 

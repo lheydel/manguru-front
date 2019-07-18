@@ -1,5 +1,8 @@
-import { UserActionType, UserLoginActionRequest, UserLoginActionSuccess, UserLoginActionFailure } from './user.actions';
 import { User } from '../../../models/user.model';
+import {
+    UserActionType, UserLoginActionFailure, UserLoginActionRequest,
+    UserLoginActionSuccess, UserLoginJwtActionRequest
+} from './user.actions';
 
 /**
  * Define actions on users
@@ -11,11 +14,18 @@ import { User } from '../../../models/user.model';
  */
 class UserActions {
 
-    public loginRequest(email: string, password: string): UserLoginActionRequest {
+    public loginRequest(email: string, password: string, rememberMe: boolean): UserLoginActionRequest {
         return {
             type: UserActionType.LOGIN_REQUEST,
             email: email,
-            password: password
+            password: password,
+            rememberMe: rememberMe,
+        };
+    }
+
+    public loginJwtRequest(): UserLoginJwtActionRequest {
+        return {
+            type: UserActionType.LOGIN_JWT_REQUEST,
         };
     }
 

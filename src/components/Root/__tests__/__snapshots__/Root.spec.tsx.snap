@@ -13,31 +13,41 @@ exports[`Root component should renders itself and children 1`] = `
     }
   }
 >
-  <Connect(RawI18nConnected)>
-    <Connect(ConnectedRouterWithContext)
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
+  <CookiesProvider
+    cookies={
+      Cookies {
+        "HAS_DOCUMENT_COOKIE": false,
+        "changeListeners": Array [],
+        "cookies": Object {},
       }
-    >
-      <Routes />
-    </Connect(ConnectedRouterWithContext)>
-  </Connect(RawI18nConnected)>
+    }
+  >
+    <Connect(RawI18nConnected)>
+      <Connect(ConnectedRouterWithContext)
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+      >
+        <Routes />
+      </Connect(ConnectedRouterWithContext)>
+    </Connect(RawI18nConnected)>
+  </CookiesProvider>
 </Provider>
 `;

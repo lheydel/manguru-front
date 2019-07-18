@@ -1,29 +1,39 @@
-import userService from '../service/user.service';
-import { UserCreateReqDTO } from '../dto/user.create.req';
 import { expectSaga } from 'redux-saga-test-plan';
-import userSaga from './user.saga';
-import { UserLoginActionRequest, UserActionType, UserLoginActionSuccess, UserLoginActionFailure } from '../actions/user.actions';
 import { User } from '../../../models/user.model';
+import { UserActionType, UserLoginActionFailure, UserLoginActionRequest,
+         UserLoginActionSuccess, UserLoginJwtActionRequest, UserLoginAction } from '../actions/user.actions';
+import { UserLoginRequest } from '../dto/user.login.req';
+import userService from '../service/user.service';
+import userSaga from './user.saga';
 
 describe('overall', () => {
     it('should fork every saga', () => {
         return expectSaga(userSaga.makeSaga)
-                .fork(userSaga.watchLoginRequest)
-                .run();
-                // TODO add others
+            .fork(userSaga.watchLoginRequest)
+            .run();
+        // TODO add others
     });
 });
 
-describe('login', () => {
+const actDefaultRequest: UserLoginActionRequest = {
+    type: UserActionType.LOGIN_REQUEST,
+    email: '',
+    password: '',
+    rememberMe: false,
+};
+
+const actJwtRequest: UserLoginJwtActionRequest = {
+    type: UserActionType.LOGIN_JWT_REQUEST,
+};
+
+describe.each`
+    type         | actRequest           | watchFn
+    ${'default'} | ${actDefaultRequest} | ${userSaga.watchLoginRequest}
+    ${'jwt'}     | ${actJwtRequest}     | ${userSaga.watchLoginJwtRequest}
+`('login $type', ({ actRequest, watchFn }) => {
     const user = new User();
 
     const mockDto = jest.fn();
-
-    const actRequest: UserLoginActionRequest = {
-        type: UserActionType.LOGIN_REQUEST,
-        email: '',
-        password: ''
-    };
 
     const actSuccess: UserLoginActionSuccess = {
         type: UserActionType.LOGIN_SUCCESS,
@@ -35,16 +45,17 @@ describe('login', () => {
         error: ''
     };
 
-    it('should call handleLogin', async () => {
-        return expectSaga(userSaga.watchLoginRequest)
+    it('should call handleLogin on request', async () => {
+        return expectSaga(watchFn)
                 .dispatch(actRequest)
                 .call(userSaga.handleLogin, actRequest)
                 .run();
     });
 
     it('should call loginSuccess when service returns user', () => {
-        UserCreateReqDTO.prototype.validateMe = mockDto;
+        UserLoginRequest.prototype.validateMe = mockDto;
         userService.login = jest.fn().mockResolvedValue(user);
+        userService.loginJwt = jest.fn().mockResolvedValue(user);
 
         return expectSaga(userSaga.handleLogin, actRequest)
                 .put(actSuccess)
@@ -52,8 +63,9 @@ describe('login', () => {
     });
 
     it('should call loginFailure when service throws', () => {
-        UserCreateReqDTO.prototype.validateMe = mockDto;
+        UserLoginRequest.prototype.validateMe = mockDto;
         userService.login = jest.fn().mockRejectedValue('');
+        userService.loginJwt = jest.fn().mockRejectedValue('');
 
         return expectSaga(userSaga.handleLogin, actRequest)
                 .put(actFailure)

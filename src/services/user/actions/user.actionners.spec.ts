@@ -15,10 +15,19 @@ describe('login', () => {
         const action: UserLoginAction = {
             type: UserActionType.LOGIN_REQUEST,
             email: user.email,
-            password: 'blblbl'
+            password: 'blblbl',
+            rememberMe: true,
         };
 
-        expect(userActions.loginRequest(action.email, action.password)).toEqual(action);
+        expect(userActions.loginRequest(action.email, action.password, true)).toEqual(action);
+    });
+
+    test('jwt request', () => {
+        const action: UserLoginAction = {
+            type: UserActionType.LOGIN_JWT_REQUEST
+        };
+
+        expect(userActions.loginJwtRequest()).toEqual(action);
     });
 
     test('success', () => {
