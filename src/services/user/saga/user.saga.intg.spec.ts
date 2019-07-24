@@ -5,7 +5,6 @@ import { User } from '../../../models/user.model';
 import { Route } from '../../../utils/properties';
 import { UserActionType, UserLoginActionFailure, UserLoginActionRequest,
          UserLoginActionSuccess, UserLoginJwtActionRequest } from '../actions/user.actions';
-import { UserLoginResponse } from '../dto/user.login.res';
 import userSaga from './user.saga';
 import { UserDTO } from '../dto/user.dto';
 
@@ -45,7 +44,7 @@ describe('login', () => {
 
             moxios.stubRequest(loginRoute, {
                 status: 200,
-                response: new UserLoginResponse(user, 'token')
+                response: new UserDTO(user)
             });
 
             const saga = await expectSaga(userSaga.handleLogin, actRequest).run();
@@ -78,7 +77,7 @@ describe('login', () => {
 
             moxios.stubRequest(loginRoute, {
                 status: 200,
-                response: new UserLoginResponse(user, 'token')
+                response: new UserDTO(user)
             });
 
             const saga = await expectSaga(userSaga.handleLogin, actRequest).run();

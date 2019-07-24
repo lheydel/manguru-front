@@ -2,8 +2,8 @@ import moxios from 'moxios';
 import { User } from '../../../models/user.model';
 import { cookies } from '../../../utils/common';
 import { Cookie, Route } from '../../../utils/properties';
+import { UserDTO } from '../dto/user.dto';
 import { UserLoginRequest } from '../dto/user.login.req';
-import { UserLoginResponse } from '../dto/user.login.res';
 import userService from './user.service';
 
 beforeEach(() => {
@@ -21,8 +21,8 @@ describe('login', () => {
         email: 'sandra@geffroi.com',
         username: 'Sandra Geffroi',
     };
-    const userRes = new UserLoginResponse(user, 'token');
-    const userReq = new UserLoginRequest(user.email, 'pwd');
+    const userRes = new UserDTO(user);
+    const userReq = new UserLoginRequest(user.email, 'pwd', true);
 
     it('should fetch user and set jwt on success', async () => {
         moxios.stubRequest(loginRoute, {
@@ -30,8 +30,7 @@ describe('login', () => {
             response: userRes
         });
 
-        await expect(userService.login(userReq, true)).resolves.toMatchObject(user);
-        expect(cookies.get(Cookie.AUTH)).toBe(userRes.token);
+        await expect(userService.login(userReq)).resolves.toMatchObject(user);
     });
 
     it.each`
@@ -44,7 +43,7 @@ describe('login', () => {
             status: status
         });
 
-        await expect(userService.login(userReq, false)).rejects.toThrow();
+        await expect(userService.login(userReq)).rejects.toThrow();
     });
 });
 
@@ -55,8 +54,7 @@ describe('loginJwt', () => {
         email: 'sandra@geffroi.com',
         username: 'Sandra Geffroi',
     };
-    const userRes = new UserLoginResponse(user, 'token');
-    const userReq = new UserLoginRequest(user.email, 'pwd');
+    const userRes = new UserDTO(user);
 
     it('should fetch user and set jwt on success', async () => {
         moxios.stubRequest(loginRoute, {
@@ -64,20 +62,6 @@ describe('loginJwt', () => {
             response: userRes
         });
 
-        await expect(userService.login(userReq, true)).resolves.toMatchObject(user);
-        expect(cookies.get(Cookie.AUTH)).toBe(userRes.token);
-    });
-
-    it.each`
-        status
-        ${400}
-        ${404}
-        ${500}
-    `('should throw on status code $status', async (status) => {
-        moxios.stubRequest(loginRoute, {
-            status: status
-        });
-
-        await expect(userService.login(userReq, false)).rejects.toThrow();
+        await expect(userService.loginJwt()).resolves.toMatchObject(user);
     });
 });
