@@ -42,24 +42,98 @@ exports[`AuthedRoute component should render itself and children when connected 
       }
     }
   >
-    <Connect(RawAuthedRoute)
+    <withCookies(Connect(RawAuthedRoute))
       component={[Function]}
-      logged={true}
+      cookies={
+        Cookies {
+          "HAS_DOCUMENT_COOKIE": false,
+          "changeListeners": Array [
+            [Function],
+          ],
+          "cookies": Object {},
+        }
+      }
+      loginJwt={[MockFunction]}
+      loginState={
+        Object {
+          "loading": false,
+          "logged": false,
+        }
+      }
       path="blblbl"
     >
-      <RawAuthedRoute
+      <withCookies(Connect(RawAuthedRoute))
         component={[Function]}
-        dispatch={[Function]}
-        logged={false}
+        cookies={
+          Cookies {
+            "HAS_DOCUMENT_COOKIE": false,
+            "changeListeners": Array [
+              [Function],
+            ],
+            "cookies": Object {},
+          }
+        }
+        forwardedRef={null}
+        loginJwt={[MockFunction]}
+        loginState={
+          Object {
+            "loading": false,
+            "logged": false,
+          }
+        }
         path="blblbl"
       >
-        <Route
-          dispatch={[Function]}
+        <Connect(RawAuthedRoute)
+          allCookies={Object {}}
+          component={[Function]}
+          cookies={
+            Cookies {
+              "HAS_DOCUMENT_COOKIE": false,
+              "changeListeners": Array [
+                [Function],
+              ],
+              "cookies": Object {},
+            }
+          }
+          loginJwt={[MockFunction]}
+          loginState={
+            Object {
+              "loading": false,
+              "logged": false,
+            }
+          }
           path="blblbl"
-          render={[Function]}
-        />
-      </RawAuthedRoute>
-    </Connect(RawAuthedRoute)>
+        >
+          <RawAuthedRoute
+            allCookies={Object {}}
+            component={[Function]}
+            cookies={
+              Cookies {
+                "HAS_DOCUMENT_COOKIE": false,
+                "changeListeners": Array [
+                  [Function],
+                ],
+                "cookies": Object {},
+              }
+            }
+            loginJwt={[Function]}
+            loginState={
+              Object {
+                "loading": false,
+                "logged": false,
+              }
+            }
+            path="blblbl"
+          >
+            <Route
+              allCookies={Object {}}
+              path="blblbl"
+              render={[Function]}
+            />
+          </RawAuthedRoute>
+        </Connect(RawAuthedRoute)>
+      </withCookies(Connect(RawAuthedRoute))>
+    </withCookies(Connect(RawAuthedRoute))>
   </Router>
 </Provider>
 `;

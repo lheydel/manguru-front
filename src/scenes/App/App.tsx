@@ -35,7 +35,7 @@ export class RawApp extends React.Component<AppProps> {
 
     private loginJwt() {
         const { loginState, cookies, loginJwt } = this.props;
-        if (!loginState.loading && !loginState.logged) {
+        if (!loginState.loading && !loginState.logged && !loginState.error) {
             if (localStorage.getItem(Cookie.AUTH) || cookies.get(Cookie.AUTH)) {
                 loginJwt();
             }
@@ -43,8 +43,9 @@ export class RawApp extends React.Component<AppProps> {
     }
 
     public render() {
-        this.loginJwt();
-        const name = this.props.loginState.logged ? this.props.loginState.user.email : 'unknown person';
+        // this.loginJwt();
+        const { loginState: { logged, user } } = this.props;
+        const name = logged && user ? user.email : 'unknown person';
         return (<div className='App'>
             <header className='App-header'>
                 <h1 style={{ color: 'red', fontSize: 150, marginTop: '50px' }}>

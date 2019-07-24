@@ -1,35 +1,30 @@
 import { User } from '../../../models/user.model';
 import { DeepReadonly } from 'utility-types';
 
-interface UserLoginInitial {
-    loading: false;
-    logged: false;
-}
+// interface UserLoginRequest {
+//     loading: true;
+//     logged: false;
+// }
 
-interface UserLoginRequest {
-    loading: true;
-    logged: false;
-}
+// interface UserLoginSuccess {
+//     loading: false;
+//     logged: true;
+//     user: User;
+// }
 
-interface UserLoginSuccess {
-    loading: false;
-    logged: true;
-    user: User;
-}
+// interface UserLoginFailure {
+//     loading: false;
+//     logged: false;
+//     error: string;
+// }
 
-interface UserLoginFailure {
-    loading: false;
-    logged: false;
-    error: string;
-}
-
-// export type UserLoginState = DeepReadonly<{
-//     loading: boolean;
-//     logged: boolean;
-//     user?: User;
-//     error?: string;
-// }>;
-export type UserLoginState = DeepReadonly<UserLoginInitial | UserLoginRequest | UserLoginSuccess | UserLoginFailure>;
+export type UserLoginState = DeepReadonly<{
+    loading: boolean;
+    logged: boolean;
+    user?: User;
+    error?: string;
+}>;
+// export type UserLoginState = DeepReadonly<UserLoginRequest | UserLoginSuccess | UserLoginFailure>;
 
 export const initialUserLoginState: UserLoginState = {loading: false, logged: false};
 
