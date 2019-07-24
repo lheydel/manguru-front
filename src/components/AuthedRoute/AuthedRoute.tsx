@@ -17,6 +17,7 @@ export interface AuthedRouteProps extends RouteProps {
 export const RawAuthedRoute: React.FC<AuthedRouteProps> = ({
     component: Child,
     loginState: { logged, loading, error },
+    loginState,
     cookies,
     loginJwt,
     ...rest
@@ -29,6 +30,8 @@ export const RawAuthedRoute: React.FC<AuthedRouteProps> = ({
         }
         return null;
     } // else
+
+    console.log(loginState);
 
     return (
         <Route {...rest} render={props => (
