@@ -4,11 +4,13 @@ export class UserLoginRequest extends BaseDTO {
 
     email: string;
     password: string;
+    rememberMe: boolean;
 
-    constructor(email: string, password: string) {
+    constructor(email: string, password: string, rememberMe: boolean) {
         super();
         this.email = email;
         this.password = password;
+        this.rememberMe = rememberMe;
     }
 
     public validateMe() {

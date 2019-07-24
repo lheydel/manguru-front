@@ -13,24 +13,24 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/services/user/service/user.service.ts:38
-#: src/services/user/service/user.service.ts:49
+#: src/services/user/service/user.service.ts:34
+#: src/services/user/service/user.service.ts:45
 msgid "An error occured. Please try again later"
 msgstr "An error occured. Please try again later"
 
-#: src/services/user/service/user.service.ts:44
+#: src/services/user/service/user.service.ts:40
 msgid "Email or password incorrect"
 msgstr "Email or password incorrect"
 
-#: src/scenes/App/App.tsx:37
+#: src/scenes/App/App.tsx:38
 msgid "Hello <0>{name}</0>! How are <1>you</1>?"
 msgstr "Hello <0>{name}</0>! How are <1>you</1>?"
 
-#: src/scenes/App/App.tsx:46
+#: src/scenes/App/App.tsx:47
 msgid "This is a test"
 msgstr "This is a test"
 
-#: src/scenes/App/App.tsx:44
+#: src/scenes/App/App.tsx:45
 msgid "Today: {0,date}"
 msgstr "Today: {0,date}"
 
@@ -38,6 +38,6 @@ msgstr "Today: {0,date}"
 #~ msgid "this is a test"
 #~ msgstr "this is a test"
 
-#: src/scenes/App/App.tsx:42
+#: src/scenes/App/App.tsx:43
 msgid "{0, plural, =0 {There is no banana :(} =666 {MOUHAHAHAHA I got my # bananas!!} one {Well, at leat we have one banana...} other {Look at all those bananas! We have at least # of them!!!!}}"
 msgstr "{0, plural, =0 {There is no banana :(} =666 {MOUHAHAHAHA I got my # bananas!!} one {Well, at leat we have one banana...} other {Look at all those bananas! We have at least # of them!!!!}}"
