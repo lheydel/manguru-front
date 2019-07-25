@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import { User } from '../../../models/user.model';
 import { cookies } from '../../../utils/common';
-import { Cookie, Route } from '../../../utils/properties';
+import { Cookie, RouteBack } from '../../../utils/properties';
 import { UserDTO } from '../dto/user.dto';
 import { UserLoginRequest } from '../dto/user.login.req';
 import userService from './user.service';
@@ -15,7 +15,7 @@ afterEach(() => {
 });
 
 describe('login', () => {
-    const loginRoute = process.env.REACT_APP_URL_BACK + Route.LOGIN;
+    const loginRoute = process.env.REACT_APP_URL_BACK + RouteBack.LOGIN;
     const user: User = {
         id: expect.anything(),
         email: 'sandra@geffroi.com',
@@ -48,7 +48,7 @@ describe('login', () => {
 });
 
 describe('loginJwt', () => {
-    const loginRoute = process.env.REACT_APP_URL_BACK + Route.LOGIN;
+    const loginRoute = process.env.REACT_APP_URL_BACK + RouteBack.LOGIN;
     const user: User = {
         id: expect.anything(),
         email: 'sandra@geffroi.com',

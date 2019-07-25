@@ -7,6 +7,7 @@ import { Store } from 'redux';
 import { Routes } from '../../routes';
 import { cookies } from '../../utils/common';
 import { I18nConnected } from './I18nConnected';
+import JwtAuthenticator from './JwtAuthenticator';
 
 export interface RootProps {
     store: Store;
@@ -18,7 +19,9 @@ export const Root: React.FC<RootProps> = ({ store, history }: RootProps) => (
         <CookiesProvider cookies={cookies}>
             <I18nConnected>
                 <ConnectedRouter history={history}>
-                    <Routes />
+                    <JwtAuthenticator>
+                        <Routes />
+                    </JwtAuthenticator>
                 </ConnectedRouter>
             </I18nConnected>
         </CookiesProvider>

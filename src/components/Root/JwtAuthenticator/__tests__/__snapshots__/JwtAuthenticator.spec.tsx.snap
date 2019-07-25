@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JwtAuthenticator component user logged --> render children 1`] = `<button />`;
+
+exports[`JwtAuthenticator component user not logged + auth failed --> render children 1`] = `<button />`;
+
+exports[`JwtAuthenticator component user not logged + jwt cookie + loading --> render null 1`] = `null`;
+
+exports[`JwtAuthenticator component user not logged + jwt cookie --> try to authenticate + render null 1`] = `null`;
+
+exports[`JwtAuthenticator component user not logged + no jwt cookie --> render children 1`] = `<button />`;

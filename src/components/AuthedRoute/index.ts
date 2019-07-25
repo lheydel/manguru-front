@@ -1,3 +1,3 @@
-import { AuthedRoute } from './AuthedRoute';
-export default AuthedRoute;
-export * from './AuthedRoute';
+import { AuthRoute } from './AuthRoute';
+export default AuthRoute;
+export * from './AuthRoute';

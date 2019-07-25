@@ -10,23 +10,23 @@ export interface I18nConnectedProps {
   language: Language;
 }
 
-export class RawI18nConnected extends React.Component<I18nConnectedProps> {
-  public render() {
+/**
+ * Connect I18nProvider to the redux store
+ */
+export const RawI18nConnected: React.FC<I18nConnectedProps> = (props) => {
     const { i18n } = i18nService;
-    const { language } = this.props;
+    const { language, children } = props;
     i18n.activate(language);
-    return (
-      <I18nProvider language={language} i18n={i18n}>
-        {this.props.children}
-      </I18nProvider>
-    );
-  }
-}
 
-const mapStateToProps = (state: ApplicationState) => {
-  return {
-    language: state.i18n.language
-  };
+    return (
+        <I18nProvider language={language} i18n={i18n}>
+            {children}
+        </I18nProvider>
+    );
 };
+
+const mapStateToProps = (state: ApplicationState) => ({
+    language: state.i18n.language
+});
 
 export const I18nConnected = connect(mapStateToProps)(RawI18nConnected);

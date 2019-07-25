@@ -11,11 +11,6 @@ import { Language } from '../../../../utils/properties';
 describe('I18nConnected component', () => {
     const child = <button />;
 
-    it('should render itself and children', () => {
-        const wrapper = shallow(<RawI18nConnected language={Language.DEFAULT}>{child}</RawI18nConnected>);
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
-
     it('should render itself and children when connected', () => {
         const wrapper = shallow(
             <Provider store={createMockStore()(initialAppState)}>

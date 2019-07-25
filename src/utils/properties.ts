@@ -4,7 +4,12 @@ export enum Language {
     FR = 'fr',
 }
 
-export enum Route {
+export enum RouteFront {
+    HOME = '/',
+    LOGIN = '/login',
+}
+
+export enum RouteBack {
     LOGIN = '/login',
     USER = '/user',
 }

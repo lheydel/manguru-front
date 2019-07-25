@@ -45,7 +45,9 @@ exports[`Root component should renders itself and children 1`] = `
           }
         }
       >
-        <Routes />
+        <withCookies(Connect(RawJwtAuthenticator))>
+          <Routes />
+        </withCookies(Connect(RawJwtAuthenticator))>
       </Connect(ConnectedRouterWithContext)>
     </Connect(RawI18nConnected)>
   </CookiesProvider>
