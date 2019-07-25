@@ -2,7 +2,7 @@ import moxios from 'moxios';
 import { expectSaga } from 'redux-saga-test-plan';
 import { put } from 'redux-saga-test-plan/matchers';
 import { User } from '../../../models/user.model';
-import { Route } from '../../../utils/properties';
+import { RouteBack } from '../../../utils/properties';
 import { UserActionType, UserLoginActionFailure, UserLoginActionRequest,
          UserLoginActionSuccess, UserLoginJwtActionRequest } from '../actions/user.actions';
 import userSaga from './user.saga';
@@ -17,7 +17,7 @@ afterEach(() => {
 });
 
 describe('login', () => {
-    const loginRoute = process.env.REACT_APP_URL_BACK + Route.LOGIN;
+    const loginRoute = process.env.REACT_APP_URL_BACK + RouteBack.LOGIN;
     const user = new User();
     user.email = 'larry@golade.com';
     user.username = 'Larry Golade';

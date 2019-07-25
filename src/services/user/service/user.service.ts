@@ -2,7 +2,7 @@ import { t } from '@lingui/macro';
 import axios from 'axios';
 import { User } from '../../../models/user.model';
 import { requestConfig } from '../../../utils/common';
-import { Route } from '../../../utils/properties';
+import { RouteBack } from '../../../utils/properties';
 import i18nService from '../../i18n/service/i18n.service';
 import { UserDTO } from '../dto/user.dto';
 import { UserLoginRequest } from '../dto/user.login.req';
@@ -21,7 +21,7 @@ class UserService {
     public async login(dto: UserLoginRequest): Promise<User> {
         try {
             // request login to back
-            const response = await axios.post<UserDTO>(process.env.REACT_APP_URL_BACK + Route.LOGIN, dto, requestConfig);
+            const response = await axios.post<UserDTO>(process.env.REACT_APP_URL_BACK + RouteBack.LOGIN, dto, requestConfig);
 
             // login success
             return new UserDTO(response.data).toUser();
@@ -53,7 +53,7 @@ class UserService {
     public async loginJwt(): Promise<User> {
         try {
             // request login to back
-            const response = await axios.get<UserDTO>(process.env.REACT_APP_URL_BACK + Route.LOGIN, requestConfig);
+            const response = await axios.get<UserDTO>(process.env.REACT_APP_URL_BACK + RouteBack.LOGIN, requestConfig);
 
             // login success
             return new UserDTO(response.data).toUser();
