@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert component variant: [danger] 1`] = `
+<Alert
+  variant={
+    Object {
+      "variant": "danger",
+    }
+  }
+>
+  <Styled(MuiBox)
+    border={1}
+  >
+    <div
+      className="MuiBox-root MuiBox-root-3"
+    >
+      <i>
+        blblbl
+      </i>
+    </div>
+  </Styled(MuiBox)>
+</Alert>
+`;

@@ -18,6 +18,10 @@ msgstr ""
 msgid "An error occured. Please try again later"
 msgstr "An error occured. Please try again later"
 
+#: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:33
+msgid "Email"
+msgstr "Email"
+
 #: src/services/user/service/user.service.ts:40
 msgid "Email or password incorrect"
 msgstr "Email or password incorrect"
@@ -26,6 +30,30 @@ msgstr "Email or password incorrect"
 msgid "Hello <0>{name}</0>! How are <1>you</1>?"
 msgstr "Hello <0>{name}</0>! How are <1>you</1>?"
 
+#: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:37
+msgid "Password"
+msgstr "Password"
+
+#: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:19
+msgid "Please enter a valid email"
+msgstr "Please enter a valid email"
+
+#: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:20
+msgid "Please enter the email associated with your account"
+msgstr "Please enter the email associated with your account"
+
+#: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:22
+msgid "Please enter your password"
+msgstr "Please enter your password"
+
+#: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:40
+msgid "Remember me"
+msgstr "Remember me"
+
+#: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:43
+msgid "Sign in"
+msgstr "Sign in"
+
 #: src/scenes/App/App.tsx:47
 msgid "This is a test"
 msgstr "This is a test"
@@ -33,10 +61,6 @@ msgstr "This is a test"
 #: src/scenes/App/App.tsx:45
 msgid "Today: {0,date}"
 msgstr "Today: {0,date}"
-
-#: src/scenes/App/App.tsx:28
-#~ msgid "this is a test"
-#~ msgstr "this is a test"
 
 #: src/scenes/App/App.tsx:43
 msgid "{0, plural, =0 {There is no banana :(} =666 {MOUHAHAHAHA I got my # bananas!!} one {Well, at leat we have one banana...} other {Look at all those bananas! We have at least # of them!!!!}}"

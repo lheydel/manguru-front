@@ -1,6 +1,6 @@
 import React from 'react';
-import { LoginForm } from './LoginForm';
+import LoginContent from './LoginContent';
 
 export const Login: React.FC = () => (
-    <LoginForm></LoginForm>
+  <LoginContent />
 );

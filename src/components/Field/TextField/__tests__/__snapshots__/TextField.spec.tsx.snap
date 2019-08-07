@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField component should render itself and children 1`] = `
+<WithStyles(ForwardRef(TextField))
+  error={false}
+  name="blblbl"
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+/>
+`;
+
+exports[`TextField component should render text field with error 1`] = `
+<WithStyles(ForwardRef(TextField))
+  error={true}
+  helperText="err"
+  name="blblbl"
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+/>
+`;
+
+exports[`TextField component should render text field with no error 1`] = `
+<WithStyles(ForwardRef(TextField))
+  error={false}
+  helperText=""
+  name="blblbl"
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+/>
+`;
+
+exports[`TextField component should render text field with no error 2`] = `
+<WithStyles(ForwardRef(TextField))
+  error={false}
+  helperText={false}
+  name="blblbl"
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+/>
+`;

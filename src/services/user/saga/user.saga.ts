@@ -39,7 +39,7 @@ class UserSaga implements BaseSaga {
                            : yield call(this._loginJwt);
             yield put(userActions.loginSuccess(result));
         } catch (err) {
-            yield put(userActions.loginFailure(err));
+            yield put(userActions.loginFailure(err.message));
         }
     }
 

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox component should render itself and children 1`] = `
+<WithStyles(ForwardRef(Checkbox))
+  name="blblbl"
+  onChange={[MockFunction]}
+/>
+`;

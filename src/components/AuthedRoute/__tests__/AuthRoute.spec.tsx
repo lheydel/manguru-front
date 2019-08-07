@@ -1,14 +1,8 @@
-import { mount, shallow } from 'enzyme';
-import { createBrowserHistory } from 'history';
+import { shallow } from 'enzyme';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { Route, Router, Redirect } from 'react-router';
-import { Store } from 'redux';
-import createMockStore from 'redux-mock-store';
-import AuthRoute, { RawAuthRouteProps, RawAuthRoute } from '..';
-import { ApplicationState, initialAppState } from '../../../services/common/app.state';
+import { Redirect, Route } from 'react-router';
+import { RawAuthRoute, RawAuthRouteProps } from '..';
 import { RouteFront } from '../../../utils/properties';
-import toJson from 'enzyme-to-json';
 
 describe('AuthedRoute component', () => {
     const shallowWrapper = (props: RawAuthRouteProps, logged: boolean) => {

@@ -8,22 +8,27 @@ import { Routes } from '../../routes';
 import { cookies } from '../../utils/common';
 import { I18nConnected } from './I18nConnected';
 import JwtAuthenticator from './JwtAuthenticator';
+import { ThemeProvider } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 
 export interface RootProps {
-    store: Store;
-    history: History;
+  store: Store;
+  history: History;
+  theme: Theme;
 }
 
-export const Root: React.FC<RootProps> = ({ store, history }: RootProps) => (
-    <Provider store={store}>
-        <CookiesProvider cookies={cookies}>
-            <I18nConnected>
-                <ConnectedRouter history={history}>
-                    <JwtAuthenticator>
-                        <Routes />
-                    </JwtAuthenticator>
-                </ConnectedRouter>
-            </I18nConnected>
-        </CookiesProvider>
-    </Provider>
+export const Root: React.FC<RootProps> = ({ store, history, theme }: RootProps) => (
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <CookiesProvider cookies={cookies}>
+        <ThemeProvider theme={theme}>
+          <I18nConnected>
+            <JwtAuthenticator>
+              <Routes />
+            </JwtAuthenticator>
+          </I18nConnected>
+        </ThemeProvider>
+      </CookiesProvider>
+    </ConnectedRouter>
+  </Provider>
 );

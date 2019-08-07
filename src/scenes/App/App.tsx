@@ -3,7 +3,7 @@ import { I18n } from '@lingui/react';
 import React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
 import { connect } from 'react-redux';
-import { ApplicationState } from '../../services/common/app.state';
+import { ApplicationState } from '../../services/common/app.states';
 import i18nActions from '../../services/i18n/actions/i18n.actionners';
 import userActions from '../../services/user/actions/user.actionners';
 import { UserLoginState } from '../../services/user/reducers/user.states';

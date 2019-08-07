@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { I18nProvider } from '@lingui/react';
 import { Language } from '../../../utils/properties';
-import { ApplicationState } from '../../../services/common/app.state';
+import { ApplicationState } from '../../../services/common/app.states';
 import { connect } from 'react-redux';
 import i18nService from '../../../services/i18n/service/i18n.service';
 

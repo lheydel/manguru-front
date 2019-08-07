@@ -64,8 +64,8 @@ describe.each`
 
     it('should call loginFailure when service throws', () => {
         UserLoginRequest.prototype.validateMe = mockDto;
-        userService.login = jest.fn().mockRejectedValue('');
-        userService.loginJwt = jest.fn().mockRejectedValue('');
+        userService.login = jest.fn().mockRejectedValue(new Error());
+        userService.loginJwt = jest.fn().mockRejectedValue(new Error());
 
         return expectSaga(userSaga.handleLogin, actRequest)
                 .put(actFailure)
