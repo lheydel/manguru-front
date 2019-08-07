@@ -1,7 +1,6 @@
 import moxios from 'moxios';
 import { User } from '../../../models/user.model';
-import { cookies } from '../../../utils/common';
-import { Cookie, RouteBack } from '../../../utils/properties';
+import { RouteBack } from '../../../utils/properties';
 import { UserDTO } from '../dto/user.dto';
 import { UserLoginRequest } from '../dto/user.login.req';
 import userService from './user.service';
@@ -22,7 +21,6 @@ describe('login', () => {
         username: 'Sandra Geffroi',
     };
     const userRes = new UserDTO(user);
-    const userReq = new UserLoginRequest(user.email, 'pwd', true);
 
     it('should fetch user and set jwt on success', async () => {
         moxios.stubRequest(loginRoute, {
@@ -30,7 +28,7 @@ describe('login', () => {
             response: userRes
         });
 
-        await expect(userService.login(userReq)).resolves.toMatchObject(user);
+        await expect(userService.login(user.email, 'pwd', true)).resolves.toMatchObject(user);
     });
 
     it.each`
@@ -43,7 +41,7 @@ describe('login', () => {
             status: status
         });
 
-        await expect(userService.login(userReq)).rejects.toThrow();
+        await expect(userService.login(user.email, 'pwd', true)).rejects.toThrow();
     });
 });
 

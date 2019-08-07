@@ -47,10 +47,7 @@ class UserSaga implements BaseSaga {
      * Handle the default login requests (with email and password)
      */
     private async _loginCrendentials(action: UserLoginActionRequest): Promise<User> {
-        const dto = new UserLoginRequest(action.email, action.password, action.rememberMe);
-        dto.validateMe();
-
-        return await userService.login(dto);
+        return await userService.login(action.email, action.password, action.rememberMe);
     }
 
     /**
