@@ -65,6 +65,43 @@ class UserService {
             throw new Error(err);
         }
     }
+
+    /**
+     * User registration request
+     */
+    public async register(email: string, username: string, password: string) {
+        try {
+            // format request data
+            const dto = new UserCreateRequest(email, username, password);
+            dto.validateMe();
+
+            // request registration to back
+            await axios.post<UserDTO>(process.env.REACT_APP_URL_BACK + RouteBack.USER, dto, requestConfig);
+
+        } catch (err) {
+            // registration failed
+            let msg = i18nService.i18n._(t`An error occured. Please try again later`);
+            if (err.response != null) {
+                switch (err.response.status.status) {
+                    // wrong credentials
+                    case 400:
+                        msg = i18nService.i18n._(t`Some information are invalid`);
+                        break;
+
+                    // duplicate
+                    case 420:
+                        msg = i18nService.i18n._(t`This email already exists`);
+                        break;
+
+                    // server error
+                    case 500:
+                    default:
+                        msg = i18nService.i18n._(t`An error occured. Please try again later`);
+                }
+            }
+            throw new Error(msg);
+        }
+    }
 }
 
 export default new UserService();

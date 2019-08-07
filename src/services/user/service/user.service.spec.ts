@@ -63,3 +63,28 @@ describe('loginJwt', () => {
         await expect(userService.loginJwt()).resolves.toMatchObject(user);
     });
 });
+
+describe('register', () => {
+    const registerRoute = process.env.REACT_APP_URL_BACK + RouteBack.USER;
+
+    it('should return without error on success', async () => {
+        moxios.stubRequest(registerRoute, {
+            status: 200,
+        });
+
+        await expect(userService.register('annie@macion.com', 'Animation', 'pwd')).resolves.not.toThrow();
+    });
+
+    it.each`
+        status
+        ${400}
+        ${420}
+        ${500}
+    `('should throw on status code $status', async (status) => {
+        moxios.stubRequest(registerRoute, {
+            status: status
+        });
+
+        await expect(userService.register('annie@macion.com', 'Animation', 'pwd')).rejects.toThrow();
+    });
+});
