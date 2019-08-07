@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import I18nConnected, { RawI18nConnected } from '..';
 import { shallow, mount } from 'enzyme';
 import createMockStore from 'redux-mock-store';
-import { initialAppState } from '../../../../services/common/app.state';
+import { initialAppState } from '../../../../services/common/app.states';
 import toJson from 'enzyme-to-json';
 import { I18nProvider } from '@lingui/react';
 import { Language } from '../../../../utils/properties';

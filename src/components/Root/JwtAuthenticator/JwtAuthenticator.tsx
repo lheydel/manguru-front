@@ -2,7 +2,7 @@ import React from 'react';
 import { Cookies, withCookies } from 'react-cookie';
 import { UserLoginState } from '../../../services/user/reducers/user.states';
 import { connect } from 'react-redux';
-import { ApplicationState } from '../../../services/common/app.state';
+import { ApplicationState } from '../../../services/common/app.states';
 import userActionners from '../../../services/user/actions/user.actionners';
 import { Cookie } from '../../../utils/properties';
 

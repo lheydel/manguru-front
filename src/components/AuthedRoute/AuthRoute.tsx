@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
-import { ApplicationState } from '../../services/common/app.state';
+import { ApplicationState } from '../../services/common/app.states';
 import { RouteFront } from '../../utils/properties';
 
 export interface RawAuthRouteProps extends RouteProps {

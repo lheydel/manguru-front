@@ -9,8 +9,8 @@ import { RouteFront } from './utils/properties';
  * Define the routes of the app
  */
 export const Routes: React.FC = () => (
-    <Switch>
-        <AuthRoute exact path={RouteFront.HOME} component={App} shouldBe={true} />
-        <AuthRoute exact path={RouteFront.LOGIN} component={Login} shouldBe={false} />
-    </Switch>
+  <Switch>
+    <AuthRoute exact path={RouteFront.HOME} component={App} shouldBe={true} />
+    <AuthRoute exact path={RouteFront.LOGIN} component={Login} shouldBe={false} />
+  </Switch>
 );

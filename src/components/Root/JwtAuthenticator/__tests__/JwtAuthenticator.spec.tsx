@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { Store } from 'redux';
 import createMockStore from 'redux-mock-store';
 import JwtAuthenticator from '..';
-import { ApplicationState, initialAppState } from '../../../../services/common/app.state';
+import { ApplicationState, initialAppState } from '../../../../services/common/app.states';
 import { Cookie } from '../../../../utils/properties';
 import { RawJwtAuthenticator } from '../JwtAuthenticator';
 
