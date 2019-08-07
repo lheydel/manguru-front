@@ -13,8 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/services/user/service/user.service.ts:34
-#: src/services/user/service/user.service.ts:45
+#: src/services/user/service/user.service.ts:37
+#: src/services/user/service/user.service.ts:48
+#: src/services/user/service/user.service.ts:86
+#: src/services/user/service/user.service.ts:100
 msgid "An error occured. Please try again later"
 msgstr "An error occured. Please try again later"
 
@@ -22,7 +24,7 @@ msgstr "An error occured. Please try again later"
 msgid "Email"
 msgstr "Email"
 
-#: src/services/user/service/user.service.ts:40
+#: src/services/user/service/user.service.ts:43
 msgid "Email or password incorrect"
 msgstr "Email or password incorrect"
 
@@ -53,6 +55,14 @@ msgstr "Remember me"
 #: src/scenes/Login/LoginContent/LoginForm/LoginForm.tsx:43
 msgid "Sign in"
 msgstr "Sign in"
+
+#: src/services/user/service/user.service.ts:91
+msgid "Some information are invalid"
+msgstr "Some information are invalid"
+
+#: src/services/user/service/user.service.ts:95
+msgid "This email already exists"
+msgstr "This email already exists"
 
 #: src/scenes/App/App.tsx:47
 msgid "This is a test"

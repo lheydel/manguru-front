@@ -1,5 +1,5 @@
 import userActions from './user.actionners';
-import { UserActionType, UserLoginAction } from './user.actions';
+import { UserActionType, UserLoginAction, UserRegisterAction } from './user.actions';
 import { User } from '../../../models/user.model';
 
 describe('login', () => {
@@ -46,5 +46,36 @@ describe('login', () => {
         };
 
         expect(userActions.loginFailure(action.error)).toEqual(action);
+    });
+});
+
+describe('register', () => {
+
+    test('request', () => {
+        const action: UserRegisterAction = {
+            type: UserActionType.REGISTER_REQUEST,
+            email: 'larry@golade.com',
+            username: 'LarryGolade',
+            password: 'blblbl',
+        };
+
+        expect(userActions.registerRequest(action.email, action.username, action.password)).toEqual(action);
+    });
+
+    test('success', () => {
+        const action: UserRegisterAction = {
+            type: UserActionType.REGISTER_SUCCESS,
+        };
+
+        expect(userActions.registerSuccess()).toEqual(action);
+    });
+
+    test('request', () => {
+        const action: UserRegisterAction = {
+            type: UserActionType.REGISTER_FAILURE,
+            error: 'Error'
+        };
+
+        expect(userActions.registerFailure(action.error)).toEqual(action);
     });
 });

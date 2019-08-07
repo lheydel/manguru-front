@@ -1,7 +1,8 @@
 import { User } from '../../../models/user.model';
 import {
-    UserActionType, UserLoginActionFailure, UserLoginActionRequest,
-    UserLoginActionSuccess, UserLoginJwtActionRequest
+    UserActionType,
+    UserLoginActionFailure, UserLoginActionRequest, UserLoginActionSuccess, UserLoginJwtActionRequest,
+    UserRegisterActionRequest, UserRegisterActionSuccess, UserRegisterActionFailure
 } from './user.actions';
 
 /**
@@ -14,6 +15,7 @@ import {
  */
 class UserActions {
 
+    /* LOGIN */
     public loginRequest(email: string, password: string, rememberMe: boolean): UserLoginActionRequest {
         return {
             type: UserActionType.LOGIN_REQUEST,
@@ -43,7 +45,28 @@ class UserActions {
         };
     }
 
-    // TODO others
+    /* REGISTER */
+    public registerRequest(email: string, username: string, password: string): UserRegisterActionRequest {
+        return {
+            type: UserActionType.REGISTER_REQUEST,
+            email: email,
+            username: username,
+            password: password,
+        };
+    }
+
+    public registerSuccess(): UserRegisterActionSuccess {
+        return {
+            type: UserActionType.REGISTER_SUCCESS,
+        };
+    }
+
+    public registerFailure(error: string): UserRegisterActionFailure {
+        return {
+            type: UserActionType.REGISTER_FAILURE,
+            error: error
+        };
+    }
 }
 
 export default new UserActions();
