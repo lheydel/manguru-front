@@ -7,6 +7,9 @@ export interface AlertProps {
   variant: 'danger';
 }
 
+/**
+ * Display a message within a colored block
+ */
 export const Alert: React.FC<AlertProps & BoxProps> = ({ children, variant, ...props }) => {
   const classes = style();
 
