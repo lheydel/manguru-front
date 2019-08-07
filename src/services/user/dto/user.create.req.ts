@@ -5,7 +5,7 @@ export class UserCreateRequest extends UserDTO {
     password: string;
 
     constructor(email: string, username: string, password: string) {
-        super({email, username});
+        super({ email, username });
         this.password = password;
     }
 

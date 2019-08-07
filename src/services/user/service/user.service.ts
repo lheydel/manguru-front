@@ -4,22 +4,24 @@ import { User } from '../../../models/user.model';
 import { requestConfig } from '../../../utils/common';
 import { RouteBack } from '../../../utils/properties';
 import i18nService from '../../i18n/service/i18n.service';
+import { UserCreateRequest } from '../dto/user.create.req';
 import { UserDTO } from '../dto/user.dto';
 import { UserLoginRequest } from '../dto/user.login.req';
 
 class UserService {
 
-    constructor() {
-        this.login = this.login.bind(this);
-    }
-
     /**
      * Classic login request with email and password
-     * @param dto the dto containing the info to request a login
-     * @param rememberMe define the lifespan of the jwt cookie
+     * @param email the email of the account to log in
+     * @param password the password of the account to log in
+     * @param rememberMe whether to remember the user or not for further logins
      */
-    public async login(dto: UserLoginRequest): Promise<User> {
+    public async login(email: string, password: string, rememberMe: boolean): Promise<User> {
         try {
+            // format request data
+            const dto = new UserLoginRequest(email, password, rememberMe);
+            dto.validateMe();
+
             // request login to back
             const response = await axios.post<UserDTO>(process.env.REACT_APP_URL_BACK + RouteBack.LOGIN, dto, requestConfig);
 
