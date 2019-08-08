@@ -3,20 +3,20 @@ import toJson from 'enzyme-to-json';
 import React from 'react';
 import { Provider } from 'react-redux';
 import createMockStore from 'redux-mock-store';
-import Alert from '../../../../components/Alert';
+import RegisterContent, { RawRegisterContent } from '..';
 import { initialAppState } from '../../../../services/common/app.states';
 import { initialUserState } from '../../../../services/user/reducers/user.states';
-import { LoginContent, RawLoginContent } from '../LoginContent';
+import Alert from '../../../../components/Alert';
 
-describe('LoginContent component', () => {
+describe('RegisterContent component', () => {
 
   it('should render itself without alert', () => {
-    const wrapper = shallow(<RawLoginContent loginErr={undefined} />);
+    const wrapper = shallow(<RawRegisterContent registerErr={undefined} />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should render itself with alert', () => {
-    const wrapper = shallow(<RawLoginContent loginErr={'error'} />);
+    const wrapper = shallow(<RawRegisterContent registerErr={'error'} />);
     expect(wrapper.find(Alert).props()).toBeDefined();
   });
 
@@ -27,13 +27,13 @@ describe('LoginContent component', () => {
           ...initialAppState,
           user: {
             ...initialUserState,
-            login: {
+            register: {
               error: 'blblbl',
             }
           }
         })}
       >
-        <LoginContent />
+        <RegisterContent />
       </Provider>
     );
     expect(toJson(wrapper)).toMatchSnapshot();

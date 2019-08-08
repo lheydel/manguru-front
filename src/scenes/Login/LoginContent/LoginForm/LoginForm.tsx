@@ -35,6 +35,9 @@ const loginSchema = (i18n: I18n) => Yup.object().shape({
     .required(i18n._(t`Please enter your password`)),
 });
 
+/**
+ * User login form with full design and functionnalities of the fields
+ */
 export const RawLoginForm: React.FC<LoginFormProps> = (props) => {
   const i18n = i18nService.i18n;
   return (

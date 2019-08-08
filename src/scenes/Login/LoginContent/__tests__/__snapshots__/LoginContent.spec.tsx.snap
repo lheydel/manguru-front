@@ -2859,36 +2859,6 @@ exports[`LoginContent component should render itself and children 1`] = `
 </Provider>
 `;
 
-exports[`LoginContent component should render itself with alert 1`] = `
-<WithStyles(ForwardRef(Container))
-  maxWidth="sm"
->
-  <WithStyles(ForwardRef(Card))
-    elevation={2}
-  >
-    <WithStyles(ForwardRef(CardHeader))
-      style={
-        Object {
-          "textAlign": "center",
-        }
-      }
-      title="Login"
-    />
-    <WithStyles(ForwardRef(CardContent))>
-      <Alert
-        mb={2}
-        variant="danger"
-      >
-        <i>
-          error
-        </i>
-      </Alert>
-      <Connect(RawLoginForm) />
-    </WithStyles(ForwardRef(CardContent))>
-  </WithStyles(ForwardRef(Card))>
-</WithStyles(ForwardRef(Container))>
-`;
-
 exports[`LoginContent component should render itself without alert 1`] = `
 <WithStyles(ForwardRef(Container))
   maxWidth="sm"

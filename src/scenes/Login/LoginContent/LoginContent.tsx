@@ -13,6 +13,9 @@ export interface LoginContentProps {
   loginErr: UserLoginState['error'];
 }
 
+/**
+ * Specific content of the login page
+ */
 export const RawLoginContent: React.FC<LoginContentProps> = ({ loginErr }) => (
   <Container maxWidth='sm'>
     <Card elevation={2}>

@@ -7,6 +7,7 @@ export enum Language {
 export enum RouteFront {
     HOME = '/',
     LOGIN = '/login',
+    REGISTER = '/register',
 }
 
 export enum RouteBack {

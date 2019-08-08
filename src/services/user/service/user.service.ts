@@ -32,7 +32,7 @@ class UserService {
             // login failed
             let msg = i18nService.i18n._(t`An error occured. Please try again later`);
             if (err.response != null) {
-                switch (err.response.status.status) {
+                switch (err.response.status) {
                     // wrong credentials
                     case 404:
                     case 400:
@@ -82,7 +82,7 @@ class UserService {
             // registration failed
             let msg = i18nService.i18n._(t`An error occured. Please try again later`);
             if (err.response != null) {
-                switch (err.response.status.status) {
+                switch (err.response.status) {
                     // wrong credentials
                     case 400:
                         msg = i18nService.i18n._(t`Some information are invalid`);
