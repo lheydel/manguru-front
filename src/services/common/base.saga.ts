@@ -1,4 +1,4 @@
-import { all, call, fork, put, takeLeading } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 
 export interface BaseSaga {
     makeSaga(): IterableIterator<any>;

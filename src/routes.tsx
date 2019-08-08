@@ -3,6 +3,7 @@ import { Switch } from 'react-router';
 import AuthRoute from './components/AuthedRoute';
 import { App } from './scenes/App/App';
 import Login from './scenes/Login';
+import Register from './scenes/Register';
 import { RouteFront } from './utils/properties';
 
 /**
@@ -12,5 +13,6 @@ export const Routes: React.FC = () => (
   <Switch>
     <AuthRoute exact path={RouteFront.HOME} component={App} shouldBe={true} />
     <AuthRoute exact path={RouteFront.LOGIN} component={Login} shouldBe={false} />
+    <AuthRoute exact path={RouteFront.REGISTER} component={Register} shouldBe={false} />
   </Switch>
 );

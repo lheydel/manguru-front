@@ -31,15 +31,17 @@ describe('login', () => {
         await expect(userService.login(user.email, 'pwd', true)).resolves.toMatchObject(user);
     });
 
+    it('should throw on invalid credentials', async () => {
+        await expect(userService.login('', '', true)).rejects.toThrow();
+    });
+
     it.each`
         status
         ${400}
         ${404}
         ${500}
     `('should throw on status code $status', async (status) => {
-        moxios.stubRequest(loginRoute, {
-            status: status
-        });
+        moxios.stubRequest(loginRoute, status);
 
         await expect(userService.login(user.email, 'pwd', true)).rejects.toThrow();
     });
@@ -62,6 +64,14 @@ describe('loginJwt', () => {
 
         await expect(userService.loginJwt()).resolves.toMatchObject(user);
     });
+
+    it('should throw on failure', async () => {
+        moxios.stubRequest(loginRoute, {
+            status: 500,
+        });
+
+        await expect(userService.loginJwt()).rejects.toThrow();
+    });
 });
 
 describe('register', () => {
@@ -75,15 +85,17 @@ describe('register', () => {
         await expect(userService.register('annie@macion.com', 'Animation', 'pwd')).resolves.not.toThrow();
     });
 
+    it('should throw on invalid data', async () => {
+        await expect(userService.register('', '', '')).rejects.toThrow();
+    });
+
     it.each`
         status
         ${400}
         ${420}
         ${500}
     `('should throw on status code $status', async (status) => {
-        moxios.stubRequest(registerRoute, {
-            status: status
-        });
+        moxios.stubRequest(registerRoute, status);
 
         await expect(userService.register('annie@macion.com', 'Animation', 'pwd')).rejects.toThrow();
     });

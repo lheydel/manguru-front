@@ -1,4 +1,4 @@
-import { all, call, fork, put, takeLeading } from 'redux-saga/effects';
+import { all, fork, takeLeading } from 'redux-saga/effects';
 import { User } from '../../../models/user.model';
 import { BaseSaga } from '../../common/base.saga';
 import userActions from '../actions/user.actionners';
