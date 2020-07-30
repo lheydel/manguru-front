@@ -27,7 +27,7 @@ describe('RegisterForm component', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('should dispatch a register request on submit', async () => {
+  it.skip('should dispatch a register request on submit', async () => {
     // mount component
     const registerMock = jest.fn();
     wrapper = mount(<RawRegisterForm register={registerMock} />);
